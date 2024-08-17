@@ -11,50 +11,36 @@ export default class User {
         this.#role = role || "Estudante";
         this.#ativo = ativo;
     }
-    
-    get nome () {
+
+    get nome() {
         return this.#nome
     }
 
-    get email () {
+    get email() {
         return this.#email
     }
 
-    get nascimento () {
+    get nascimento() {
         return this.#nascimento
     }
 
-    get role () {
+    get role() {
         return this.#role
     }
 
-    get ativo () {
+    get ativo() {
         return this.#ativo
     }
 
-    #montaObjUser() {
-        return ({
-            nome: this.#nome,
-            email: this.#email,
-            nascimento: this.#nascimento,
-            role: this.#role,
-            ativo:this.#ativo,
-        })
+    set nome(novoNome) {
+        if (novoNome === "") {
+            throw new Error( "Formato do nome não é válido!");
+        }
+        this.#nome = novoNome;
     }
-        
+
+
     exibirInfos() {
-        const objUser = this.#montaObjUser();
-        return `${objUser.nome}, ${objUser.email}`
+        return `${this.nome}, ${this.email}`
     }
 }
-
-const novoUser = new User("Juliana", "j@j.com", "24-01-01",);
-// console.log(novoUser);
-// console.log(novoUser.exibirInfos());
-
-
-// --------------------------------------------------OBSEVAÇÕES--------------------------------------------------------------------//
-// Para exportar é necessário avisar ao JS que vamos usar essa sintaxe fazendo umas instalações.
-// terminal -> nom init y | vai criar um arquivo package.json na raiz do projeto.
-// no arquivo package vai inserir o comado. "type" :"module",
-// get: É um método acessor. Ela vai da permissão para visualizar essa propriedade.
