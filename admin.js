@@ -4,6 +4,7 @@ export default class Admin extends User {
     constructor(nome, email, nascimento, role = "admin", ativo = true) {
         super(nome, email, nascimento, role, ativo);
     }
+    
     criarCurso(nomeDoCurso, qtdVagas) {
         return `Curso ${nomeDoCurso} criado com ${qtdVagas}`;
     }
